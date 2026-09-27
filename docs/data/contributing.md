@@ -9,7 +9,7 @@ a complete dataset.
 - **A focused example or documentation fix:** Propose a small, publicly
   shareable bundle and its schema, improve an existing example, or clarify the
   [bundle guidance](bundles/schemas-and-contents.md). The
-  [mini bundle examples](bundles/mini-examples.md) show the current format.
+  [mini bundle examples](bundles/examples.md) show the current format.
 - **A complete public dataset:** The [public bundle repository](bundles/repository.md)
   provides complete, published GKM bundles and their schemas. Adding another
   dataset is not yet a self-service process; hosting and review guidance is
