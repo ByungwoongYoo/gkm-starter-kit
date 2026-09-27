@@ -1,4 +1,4 @@
-"""Shared frontmatter loader for the GKS Starter Kit.
+"""Shared frontmatter loader for the GKM Starter Kit.
 
 The catalog and filter-page generators import from here, so the frontmatter
 contract has a single source of truth.
@@ -97,6 +97,15 @@ def _validate_vignette(
             f"'pattern' must be one of {tuple(allowed_patterns)}, "
             f"got {meta['pattern']!r}"
         )
+
+    notebook = meta.get("notebook")
+    if notebook is not None:
+        if not isinstance(notebook, dict):
+            fail("'notebook' must be a mapping with a 'path' key")
+        if not notebook.get("path"):
+            fail("'notebook' must include a non-empty 'path' key")
+        if not isinstance(notebook["path"], str):
+            fail("'notebook.path' must be a string")
 
 
 def load_vignettes() -> list[dict]:

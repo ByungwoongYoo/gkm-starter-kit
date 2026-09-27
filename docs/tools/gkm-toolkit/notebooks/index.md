@@ -7,13 +7,16 @@ directory.
 ## Available walkthroughs
 
 The walkthroughs below are rendered examples, so you can read them directly in
-your browser without installing anything.
+your browser without installing anything. The bundle examples are small,
+focused subsets of a producer's actual data. Published bundles contain the
+complete dataset released by a producer.
 
-- [Explore mini bundles](civic-notebook.md) — load and explore two mini
-  CIViC bundles, inspect their collections, and follow bundle-local references.
+- [Explore GKM Toolkit features with CIViC bundle examples](civic-notebook.md):
+  learn the Toolkit by loading two CIViC bundle examples, inspecting their
+  collections, and following bundle-local references.
 - [Explore the public bundle repository](repository-notebook.md) — discover
-  public resources, retrieve a bundle and its schema, load them into GKM
-  models, and handle repository errors.
+  public resources, retrieve a producer's complete published bundle and its
+  schema, load them into GKM models, and handle repository errors.
 
 ## Run the notebooks with MyBinder
 

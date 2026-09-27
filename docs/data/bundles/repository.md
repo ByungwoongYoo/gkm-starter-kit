@@ -1,8 +1,9 @@
 # Public bundle repository
 
 The public bundle repository provides access to **complete, published GKM
-bundles** and their schemas. These are full resources, rather than the short,
-focused examples on the [mini bundle examples](mini-examples.md) page.
+bundles** and their schemas. Each bundle contains the dataset its producer
+releases for that version. For small, focused subsets of a producer's actual
+data, see the [bundle examples](examples.md).
 
 ## Downloads
 

@@ -14,12 +14,14 @@ nav = [
   { Data = [
     "data/index.md",
     { "Contribute to Data" = "data/contributing.md" },
-    { Bundles = [
+    { Native = "data/native-records.md" },
+    { Bundle = [
       "data/bundles/index.md",
       { "Bundle schemas and contents" = "data/bundles/schemas-and-contents.md" },
-      { "Mini bundle examples" = "data/bundles/mini-examples.md" },
+      { "Bundle examples" = "data/bundles/examples.md" },
       { "Explore published bundles" = "data/bundles/repository.md" },
     ] },
+    { Bulk = "data/large-datasets.md" },
   ] },
   { Tools = [
     "tools/index.md",
@@ -30,7 +32,7 @@ nav = [
       { "Getting started" = "tools/gkm-toolkit/getting-started.md" },
       { "Explore with notebooks" = [
         "tools/gkm-toolkit/notebooks/index.md",
-        { "Explore mini bundles" = "tools/gkm-toolkit/notebooks/civic-notebook.md" },
+        { "Explore GKM Toolkit features with CIViC bundle examples" = "tools/gkm-toolkit/notebooks/civic-notebook.md" },
         { "Explore the public bundle repository" = "tools/gkm-toolkit/notebooks/repository-notebook.md" },
       ] },
       { "API reference" = [
@@ -75,7 +77,11 @@ nav = [
           "user-stories/civic/civic-oncogenicity-gkm/vignette/index.md",
           { "Try the Notebook" = "user-stories/civic/civic-oncogenicity-gkm/notebook.md" },
         ] },
-      ] }
+      ] },
+      { "Individual-Centric Genomics Platform JPN" = [
+        "user-stories/by-implementer/individual-centric-genomics-platform-jpn/index.md",
+        { "Making personal genomic knowledge auditable so AI can be trusted, not just believed" = "user-stories/individual-centric-genomics-platform-jpn/auditable-personal-genomic-knowledge/vignette.md" },
+      ] },
     ] },
     { "Contribute to User Stories" = "user-stories/contribute.md" },
   ] },
