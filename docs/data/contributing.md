@@ -8,9 +8,9 @@ a complete dataset.
 
 - **A focused example or documentation fix:** Propose a small, publicly
   shareable bundle and its schema, improve an existing example, or clarify the
-  [bundle guidance](bundles/schemas-and-contents.md). The
-  [mini bundle examples](bundles/examples.md) show the current format.
-- **A complete public dataset:** The [public bundle repository](bundles/repository.md)
+  [bundle guidance](bundle/schemas-and-contents.md). The
+  [mini bundle examples](bundle/examples.md) show the current format.
+- **A complete public dataset:** The [public bundle repository](bundle/repository.md)
   provides complete, published GKM bundles and their schemas. Adding another
   dataset is not yet a self-service process; hosting and review guidance is
   still being developed.
@@ -27,7 +27,7 @@ need to prepare the bundle files before discussing the scope.
 
 Once the scope is agreed, include the bundle schema alongside the JSON bundle
 so readers can see which collections, metadata, and object types are expected.
-The [bundle schemas and contents guide](bundles/schemas-and-contents.md)
+The [bundle schemas and contents guide](bundle/schemas-and-contents.md)
 explains versioned schema references, local JSON Pointers, and
 producer-specific fields. Record the source and provenance when the example
 derives from real data.
