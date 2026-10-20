@@ -4,7 +4,7 @@ A **native record** is a single GKM object, such as a variant, a category of
 variants, or a clinical assertion, written out on its own with everything it
 needs **inline**. Nothing is factored out into shared collections or linked by
 reference. It is the form of a GKM object before it is
-[bundled into a compact record](bundles/index.md).
+[bundled into a compact record](bundle/index.md).
 
 Use native records to exchange one record, or a small set, in a message or API
 response.
@@ -102,14 +102,3 @@ repeats everything it needs, even if two records happen to share a value.
   }
 ]
 ```
-
-## When to move beyond native records
-
-Native records stay simple as long as the set is small and repetition is
-limited. When the same objects recur within one record or across a larger set,
-restating them in full becomes wasteful and harder to keep consistent.
-
-A **compact record**, called a **bundle** in GKM, states each shared object once
-and links to it by reference.
-
-[Learn about bundles →](bundles/index.md)

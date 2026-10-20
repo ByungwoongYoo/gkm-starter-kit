@@ -15,27 +15,27 @@ the scale and use case.
 
 <div class="grid cards" markdown>
 
-- [**Native**](native-records.md)
+- [**Native**](native.md)
 
-    <span class="gks-status gks-status--production">Available now</span>
+    <span class="gkm-status gkm-status--production">Available now</span>
 
     A single record or a small set. Each object is **self-contained**, with
     nothing compacted.
 
     *Formats: JSON, JSONL, YAML*
 
-- [**Bundle**](bundles/index.md)
+- [**Bundle**](bundle/index.md)
 
-    <span class="gks-status gks-status--production">Available now</span>
+    <span class="gkm-status gkm-status--production">Available now</span>
 
     GKM's format for **compact records**. Packages related objects together, stating
     **shared representations once** and linking to them by reference.
 
     *Formats: JSON, JSON Schema*
 
-- [**Bulk**](large-datasets.md)
+- [**Bulk**](bulk.md)
 
-    <span class="gks-status gks-status--pilot">In development</span>
+    <span class="gkm-status gkm-status--pilot">In development</span>
 
     Bulk formats such as **Parquet** or **relational tables** for very large
     collections, as support develops.
@@ -126,9 +126,6 @@ and sequence reference; the bundle stores them once.
       }
     }
     ```
-
-Both alleles link to the same location and keep only their distinct states. See
-the cards above for format-specific guidance and examples.
 
 ## Built with community partners
 

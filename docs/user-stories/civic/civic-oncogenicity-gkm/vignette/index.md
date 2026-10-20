@@ -3,14 +3,14 @@ title: Sharing oncogenicity knowledge with GA4GH GKM
 slug: civic-oncogenicity-gkm
 summary: "CIViC represents oncogenicity classifications and their supporting evidence with GA4GH GKM for exchange, reuse, and workflows such as ClinVar submission."
 products:
-  - name: GKS-Core
+  - name: GKM-Core
     version: 1.1.0
   - name: VRS
-    version: 2.1.0-snapshot.2026-02.2
+    version: 2.1.1
   - name: Cat-VRS
-    version: 1.1.0-snapshot.2026-02.3
+    version: 1.1.1
   - name: VA-Spec
-    version: 1.1.0-snapshot.2026-06.1
+    version: 1.1.0
 pattern: knowledgebase-exchange
 implementer: CIViC
 notebook:
@@ -30,11 +30,11 @@ CIViC curates oncogenicity classifications and their supporting evidence. To use
 **At a glance**
 
 * **Implementer:** CIViC
-* **Products:** <span class="gks-product-label gks-product-label--gks-core">GKS-Core <small>1.1.0</small></span> <span class="gks-product-label gks-product-label--vrs">VRS <small>2.1.0-snapshot.2026-02.2</small></span> <span class="gks-product-label gks-product-label--cat-vrs">Cat-VRS <small>1.1.0-snapshot.2026-02.3</small></span> <span class="gks-product-label gks-product-label--va-spec">VA-Spec <small>1.1.0-snapshot.2026-06.1</small></span>
+* **Products:** <span class="gkm-product-label gkm-product-label--gkm-core">GKM-Core <small>1.3.0</small></span> <span class="gkm-product-label gkm-product-label--vrs">VRS <small>2.1.1</small></span> <span class="gkm-product-label gkm-product-label--cat-vrs">Cat-VRS <small>1.1.1</small></span> <span class="gkm-product-label gkm-product-label--va-spec">VA-Spec <small>1.1.0</small></span>
 * **Pattern:** Knowledgebase exchange
 * **Tools:** [CIViCpy](https://github.com/griffithlab/civicpy), [ClinVar This](https://github.com/clingen-data-model/clinvar-this)
 * **Notebook:** [Explore the example](../notebook.md)
-* **Status:** <span class="gks-status gks-status--pilot">pilot</span>
+* **Status:** <span class="gkm-status gkm-status--pilot">pilot</span>
 
 ---
 
@@ -52,11 +52,11 @@ This gives CIViC one shared representation instead of a separate CIViC-specific 
 
 ## The data
 
-CIViCpy represents an oncogenicity interpretation as connected GKM objects: Cat-VRS for the molecular profile, VRS for the underlying alleles, and VA-Spec for the proposition, assertion, evidence assessments, and provenance. This preserves the links between the variant, its context, the classification, and its evidence. The following shortened example is adapted from [CIViC Assertion 251](../../../data/bundles/civic-assertion-251-bundle.json){ target="_blank" rel="noopener" }. The linked bundle contains the full record.
+CIViCpy represents an oncogenicity interpretation as connected GKM objects: Cat-VRS for the molecular profile, VRS for the underlying alleles, and VA-Spec for the proposition, assertion, evidence assessments, and provenance. This preserves the links between the variant, its context, the classification, and its evidence. The following shortened example is adapted from [CIViC Assertion 251](../../../../data/bundle/civic-assertion-251-bundle.json){ target="_blank" rel="noopener" }. The linked bundle contains the full record.
 
 ### Connected GKM representation
 
-The example places the Molecular Profile, claim, source document, and assertion in one connected representation. The sections that follow explain the most important relationships in the JSON.
+The example places the Molecular Profile, claim, assertion, and linked Evidence Item in one connected representation. The sections that follow explain the most important relationships in the JSON.
 
 ```json
 {
@@ -72,42 +72,47 @@ The example places the Molecular Profile, claim, source document, and assertion 
     }
   },
   "proposition": {
-    "civic.proposition:1VqM04P0kzvUa1aj63ujSB9DGZNFDyE4": {
+    "civic.proposition:5ApL2QQsXFCk0CnKObMuYDSs3vGv9eCE": {
       "type": "VariantOncogenicityProposition",
-      "subjectVariant": "#/molecularProfile/civic.mpid:82",
+      "subject": "#/molecularProfile/civic.mpid:82",
       "geneContextQualifier": "#/feature/civic.gid:31", // MAP2K1
       "alleleOriginQualifier": "#/variantOrigin/civic.variantOrigin:SOMATIC",
       "predicate": "isOncogenicFor",
-      "objectTumorType": "#/disease/civic.did:216" // Cancer
-    }
-  },
-  "source": {
-    "civic.sid:5629": {
-      "id": "civic.sid:5629",
-      "type": "Document",
-      "name": "Nikolaev et al., 2011",
-      "title": "Exome sequencing identifies recurrent somatic MAP2K1 and MAP2K2 mutations in melanoma.",
-      "urls": [
-        "https://civicdb.org/links/evidence/12986", // CIViC Evidence Item
-        "https://civicdb.org/links/source/5629",
-        "http://www.ncbi.nlm.nih.gov/pubmed/22197931"
-      ],
-      "pmid": "22197931"
+      "object": "#/disease/civic.did:216" // Cancer
     }
   },
   "assertion": {
     "civic.aid:251": {
+      "id": "civic.aid:251",
       "type": "Statement",
-      "proposition": "#/proposition/civic.proposition:1VqM04P0kzvUa1aj63ujSB9DGZNFDyE4",
+      "description": "MAP2K1 P124S causes increased colony formation and increased pERK/ERK ratio (civic.eid:12986, OS2). In cancerhotspots.org there are more than 10 (15) samples with the same amino acid change and less than 50 (25) samples with a somatic variant at the same amino acid position (OM3). The variant is absent in gnomAD database (v4.1.0) (OP4). Together these criteria indicate that P124S is likely oncogenic, with a score of 7. Variant classification was done using ClinGen Somatic MAPK/ERK pathway SC-VCEP guidelines.",
+      "specifiedBy": {
+        "type": "Method",
+        "name": "ClinGen/CGC/VICC Guidelines for Oncogenicity, 2022",
+        "methodType": "guideline",
+        "reportedIn": "#/source/pmid:35101336"
+      },
+      "reportedIn": [
+        "https://civicdb.org/links/assertion/251"
+      ],
+      "proposition": "#/proposition/civic.proposition:5ApL2QQsXFCk0CnKObMuYDSs3vGv9eCE",
+      "direction": "supports",
+      "strength": {
+        "type": "MappableConcept",
+        "primaryCoding": {
+          "system": "ClinGen/CGC/VICC Guidelines for Oncogenicity, 2022",
+          "code": "likely"
+        }
+      },
       "classification": {
+        "type": "MappableConcept",
         "primaryCoding": {
           "system": "ClinGen/CGC/VICC Guidelines for Oncogenicity, 2022",
           "code": "likely oncogenic"
         }
       },
-      "reportedIn": [
-        "https://civicdb.org/links/assertion/251",
-        "#/source/civic.sid:5629"
+      "hasEvidence": [
+        "https://civicdb.org/links/evidence/12986"
       ],
       "hasEvidenceLines": [
         { "evidenceOutcome": "OS2", "scoreOfEvidenceProvided": 4, ... },
@@ -121,7 +126,7 @@ The example places the Molecular Profile, claim, source document, and assertion 
 
 ### Storing the molecular profile and its variant context
 
-CIViCpy represents the CIViC Molecular Profile as the Cat-VRS CategoricalVariant `civic.mpid:82`. It retains the profile's grouping of one or more CIViC Variants and serves as the proposition's `subjectVariant`.
+CIViCpy represents the CIViC Molecular Profile as the Cat-VRS CategoricalVariant `civic.mpid:82`. It retains the profile's grouping of one or more CIViC Variants and serves as the proposition's `subject`.
 
 CIViC stores the genomic, coding, and protein sequence representations under one CIViC Variant ID. In this example, each `members` path begins with `civic.vid:82`. The CategoricalVariant preserves that context through VRS Allele members, each with a precise, computable representation.
 
@@ -129,7 +134,7 @@ CIViC stores the genomic, coding, and protein sequence representations under one
 
 Together, these objects form a reusable statement: Somatic **RET M918T is likely oncogenic for Medullary Thyroid Carcinoma**, evaluated under the ClinGen/CGC/VICC Guidelines for Oncogenicity, 2022 framework. The classification has a score of 9 and is supported by functional domain location (OM1), functional assay (OS2), population frequency (OP4), computational prediction (OP1), somatic hotspot recurrence (OP3) evidence.
 
-CIViC stores oncogenicity codes on the assertion, but does not link each code to an Evidence Item. Curators may mention both in free text, for example `(civic.EID:12709, OS2)`, but conventions vary. CIViCpy cannot reliably infer those links, so `EvidenceLine.hasEvidenceItems` is empty. The Evidence Item URL (`https://civicdb.org/links/evidence/12986`) remains in the source document referenced by `Statement.reportedIn`.
+CIViC associates Evidence Items with the assertion but does not link an individual item to an oncogenicity code. CIViCpy maps the assertion-level links to `Statement.hasEvidence`, such as `https://civicdb.org/links/evidence/12986`, and maps each scored criterion to an `EvidenceLine`. `EvidenceLine.hasEvidenceItems` remains empty because CIViC does not identify supporting Evidence Lines for individual codes.
 
 ## The tools used
 
