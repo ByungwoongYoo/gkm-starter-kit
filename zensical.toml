@@ -13,7 +13,6 @@ nav = [
   { Home = "index.md" },
   { Data = [
     "data/index.md",
-    { "Contribute to Data" = "data/contributing.md" },
     { Native = "data/native.md" },
     { Bundle = [
       "data/bundle/index.md",
@@ -22,6 +21,7 @@ nav = [
       { "Explore published bundles" = "data/bundle/repository.md" },
     ] },
     { Bulk = "data/bulk.md" },
+    { "Contribute to Data" = "data/contributing.md" },
   ] },
   { Tools = [
     "tools/index.md",
