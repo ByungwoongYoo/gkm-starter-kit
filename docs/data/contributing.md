@@ -1,48 +1,49 @@
 # Contribute to Data
 
-A small GKM bundle can show how a producer groups records, links shared
-objects, and records provenance. You can propose an example without publishing
-a complete dataset.
+A [bundle example](bundle/examples.md) is a small, focused subset of a
+producer's actual published dataset containing genuine, unmodified GKM records.
+It shows how a producer groups records, links shared objects, and records
+provenance without requiring readers to download the complete dataset.
 
-## Choose a contribution
+## Contribute a bundle example
 
-- **A focused example or documentation fix:** Propose a small, publicly
-  shareable bundle and its schema, improve an existing example, or clarify the
-  [bundle guidance](bundle/schemas-and-contents.md). The
-  [mini bundle examples](bundle/examples.md) show the current format.
-- **A complete public dataset:** The [public bundle repository](bundle/repository.md)
-  provides complete, published GKM bundles and their schemas. Adding another
-  dataset is not yet a self-service process; hosting and review guidance is
-  still being developed.
-  [Open an issue](https://github.com/ga4gh/gkm-starter-kit/issues/new) to
-  discuss the resource with maintainers before preparing a dataset PR.
+Before preparing a new bundle example,
+[open an issue](https://github.com/ga4gh/gkm-starter-kit/issues/new) and agree on
+the scope with maintainers. This lets maintainers confirm that the example fits
+the project's use cases before you invest time in preparing it.
 
-## Prepare a focused example
+In the proposal, explain what the bundle example will teach, which GKM standards
+and versions it will use, and which producer and published dataset it comes
+from. Identify the source records or dataset release and the reuse terms. You
+do not need to prepare the bundle files before discussing the scope.
 
-For an issue proposal, explain what the example will teach and which GKM
-standards and versions you plan to use. For source-derived data, identify the
-producer, source record or dataset release, and reuse terms. For a synthetic
-example, say that it is synthetic and describe what it illustrates. You do not
-need to prepare the bundle files before discussing the scope.
+You can propose a new bundle example, improve an existing one, or clarify the
+[bundle guidance](bundle/schemas-and-contents.md). The
+[bundle examples](bundle/examples.md) show the current format. Small
+documentation corrections can go directly into a PR.
+
+!!! note "Complete datasets"
+    Maintainers are still developing the hosting and review process for adding
+    new complete datasets to the [public bundle repository](bundle/repository.md).
+    Adding a complete dataset is not yet a self-service contribution path.
+
+## Prepare a bundle example
 
 Once the scope is agreed, include the bundle schema alongside the JSON bundle
 so readers can see which collections, metadata, and object types are expected.
 The [bundle schemas and contents guide](bundle/schemas-and-contents.md)
 explains versioned schema references, local JSON Pointers, and
-producer-specific fields. Record the source and provenance when the example
-derives from real data.
-Include only data you have permission to share publicly. Do not include private
-patient information or other restricted content. If the example is synthetic
-or adapted, label it as such and explain how it was created or adapted. Check
-that local references resolve and that the bundle matches its schema before
-asking others to use it.
+producer-specific fields.
 
-## Propose and check the change
+Use genuine, unmodified records from the producer's published dataset, and
+record their source and provenance. Include only data you have permission to
+share publicly. Do not include private patient information or other restricted
+content. Check that local references resolve and that the bundle matches
+its schema before asking others to use it.
 
-For a new example, [open an issue](https://github.com/ga4gh/gkm-starter-kit/issues/new)
-with the proposed scope and information above. A small correction to an
-existing page can go directly into a PR. Once the scope is clear, follow the
-[development guide](../tools/gkm-toolkit/development.md) to set up the
+## Check and propose the change
+
+Follow the [development guide](../tools/gkm-toolkit/development.md) to set up the
 repository and run the relevant checks. For a documentation change, the guide's
 strict build is:
 
